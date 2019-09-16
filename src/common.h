@@ -29,12 +29,18 @@
 #include <unordered_map>
 #include <vector>
 
+// #include "config.h"
+
 #include "static/log.h"
 
 // from Heap Layers
 #include "utility/ilog2.h"
 
-#include "config.h"
+#ifdef __linux__
+#define MESH_THROW throw()
+#else
+#define MESH_THROW
+#endif
 
 namespace mesh {
 static constexpr bool kMeshingEnabled = MESHING_ENABLED == 1;
